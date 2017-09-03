@@ -1,16 +1,21 @@
+import { ModalService } from './modal-core/modal.service';
+import { ModalContainerDirective } from './modal-core/modal-container.directive';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ModalComponent,
+    ModalContainerDirective
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ ModalService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
