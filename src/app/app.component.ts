@@ -1,3 +1,4 @@
+import { ModalComponent } from './modal/modal.component';
 import { ModalService } from './modal-core/modal.service';
 import { Component } from '@angular/core';
 
@@ -11,6 +12,6 @@ export class AppComponent {
   }
 
   openModal() {
-
+    this.modalService.open(ModalComponent);
   }
 }
