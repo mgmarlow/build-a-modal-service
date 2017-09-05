@@ -1,10 +1,19 @@
+import { IModal } from './modal';
 import { Subscription } from 'rxjs/Subscription';
 import { ModalService } from './modal.service';
-import { ComponentFactoryResolver, Directive, OnDestroy, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
+import {
+    ComponentFactoryResolver,
+    ComponentRef,
+    Directive,
+    OnDestroy,
+    OnInit,
+    TemplateRef,
+    ViewContainerRef,
+} from '@angular/core';
 
 @Directive({ selector: '[appModalContainer]' })
 export class ModalContainerDirective implements OnInit, OnDestroy {
-    component: any;
+    component: ComponentRef<IModal>;
 
     private subscription: Subscription;
 
@@ -19,6 +28,8 @@ export class ModalContainerDirective implements OnInit, OnDestroy {
             .subscribe(modalComponent => {
                 const factory = this.componentFactoryResolver.resolveComponentFactory<any>(modalComponent);
                 this.component = this.viewContainerRef.createComponent(factory);
+                this.component.instance.activate()
+                    .subscribe(test => console.log('test'));
             });
     }
 

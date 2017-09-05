@@ -1,3 +1,4 @@
+import { IModal, Modal } from '../modal-core/modal';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,11 +6,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent extends Modal {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    super();
   }
 
 }
